@@ -19,7 +19,7 @@ export class UsersService {
     return this.col.findOne({ _id: new ObjectId(id) });
   }
 
-  async create(data: Omit<User, '_id'>) {
+  async add(data: Omit<User, '_id'>) {
     const res = await this.col.insertOne(data);
 
     return {

@@ -2,10 +2,10 @@ import { IsDate, IsRequired, IsString, Schema } from '@pestras/validall';
 import { UserApi } from 'src/models';
 
 export enum USER_SCHEMA {
-  CREATE_USER = 'CreateUser',
+  ADD = 'AddUser',
 }
 
-new Schema<UserApi.Create.Body>(USER_SCHEMA.CREATE_USER, {
+new Schema<UserApi.Add.Body>(USER_SCHEMA.ADD, {
   email: [
     IsRequired({ message: 'userEmailIsRequired' }),
     IsString('email', { message: 'invalidUserEmail' }),

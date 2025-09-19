@@ -21,11 +21,11 @@ export class UsersController {
     return this.model.getUser(params.id);
   }
 
-  @Post(UserApi.Create.PATH)
-  @Validate(USER_SCHEMA.CREATE_USER)
-  create(
-    @Body() body: UserApi.Create.Body,
-  ): Promise<UserApi.Create.Response> {
-    return this.model.create(body);
+  @Post(UserApi.Add.PATH)
+  @Validate(USER_SCHEMA.ADD)
+  add(
+    @Body() body: UserApi.Add.Body,
+  ): Promise<UserApi.Add.Response> {
+    return this.model.add(body);
   }
 }

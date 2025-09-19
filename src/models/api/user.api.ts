@@ -23,7 +23,7 @@ export namespace UserApi {
   }
 
   // Post
-  export namespace Create {
+  export namespace Add {
     export const PATH = '';
 
     export type Body = Omit<User, '_id'>;

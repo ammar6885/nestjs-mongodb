@@ -33,7 +33,7 @@ export namespace CarApi {
   }
 
   // Post
-  export namespace Create {
+  export namespace Add {
     export const PATH = '';
 
     export type Body = Omit<Car, '_id'>;

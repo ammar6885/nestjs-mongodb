@@ -23,7 +23,7 @@ export class CarsService {
     return this.col.find({ owner }).toArray();
   }
 
-  async create(data: Omit<Car, '_id'>) {
+  async add(data: Omit<Car, '_id'>) {
     const res = await this.col.insertOne(data);
 
     return {

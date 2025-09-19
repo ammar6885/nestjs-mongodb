@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { CarsService } from 'src/db-module/cars.service';
 import { Validate, ValidateGaurd } from 'src/guards/validate';
 import { CarApi } from 'src/models';
-import { CARS_SCHEMA } from './validation';
+import { CAR_SCHEMA } from './validation';
 
 @Controller(CarApi.API_PATH)
 @UseGuards(ValidateGaurd)
@@ -28,9 +28,9 @@ export class CarsController {
     return this.model.getCarsByOwner(params.owner);
   }
 
-  @Post(CarApi.Create.PATH)
-  @Validate(CARS_SCHEMA.create)
-  create(@Body() body: CarApi.Create.Body): Promise<CarApi.Create.Reposne> {
-    return this.model.create(body);
+  @Post(CarApi.Add.PATH)
+  @Validate(CAR_SCHEMA.ADD)
+  add(@Body() body: CarApi.Add.Body): Promise<CarApi.Add.Reposne> {
+    return this.model.add(body);
   }
 }
