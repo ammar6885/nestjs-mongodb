@@ -9,8 +9,8 @@ export class DbConnectService {
   private logger = new Logger('Database');
 
   async onModuleInit() {
-    if (this.conn) return this.db;
-
+    if (this.conn) return;
+    
     this.logger.log('connecting to database...');
 
     const url = process.env['DB_URL'];
@@ -27,8 +27,6 @@ export class DbConnectService {
       .once('exit', () => this.closeConn())
       .once('SIGTERM', () => this.closeConn())
       .once('SIGINT', () => this.closeConn());
-
-    return this.db;
   }
 
   onApplicationShutdown() {
